@@ -32,14 +32,17 @@ class Sort():
         pass
 
     def inplacesort(self, array):
+        #create results list to fill with boleans, to check when to end.
         res = []
         while True:
             for idx in range(1, array.size):
+                #compare array element with previous element, swap if previous is larger.
                 if array[idx - 1] > array[idx]:
                     array[idx - 1], array[idx] = array[idx], array[idx - 1]
                     res.append(False)
                 else:
                     res.append(True)
+            #if results list is filled with True, end program.
             if all(res) == True:
                 break
             res.clear()
